@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultComponent } from './layout/default/default.component';
 import { DashboardComponent } from './module/dashboard/dashboard.component';
 import { UserRegisterComponent } from './module/user-register/user-register.component';
-import { HomeComponent } from './shared/components/home/home.component';
+import { AuthGuard } from './guard/auth.guard';
+// import { UserComponent } from './shared/components/user/user.component';
+import { UserlistComponent } from './shared/components/userlist/userlist.component';
+import { UserComponent } from './shared/components/user/user.component';
+// import { UsersComponent } from './shared/users/users.component';
 
 const routes: Routes = [
   {
@@ -16,11 +20,13 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
       },
       {
-        path: 'home',
-        component: HomeComponent
+        path: 'user',
+        component: UserComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },

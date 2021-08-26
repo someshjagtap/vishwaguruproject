@@ -1,14 +1,50 @@
-:host {
-    display: flex; 
-    flex-direction: column;
+.sidenav-container {
     height: 100%;
-}
-mat-drawer {
-    width: 350px;
-}
-mat-drawer-container {
-    height: 100%;
-}
-mat-drawer-content {
+  }
+  
+  .sidenav {
+    width: 250px;
+    box-shadow: 3px 0 6px rgba(0,0,0,24);    
+  }
+
+  
+  /* .sidenav .mat-toolbar {
+    background: inherit;
+  } */
+  
+  /* .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  } */
+  
+  .profile-card {
+    text-align: center;
     padding: 20px;
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+ul li {
+  list-style: none;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+div {
+  padding: 13px;
+}
+
+app-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here  */
+  height: 50px;
 }

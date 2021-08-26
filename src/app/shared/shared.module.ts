@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -17,15 +15,25 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
+import { UserComponent } from './components/user/user.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
+import { DialogsModule } from '../dialogs/dialogs.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { UsersComponent } from './users/users.component';
+import { UserlistComponent } from './components/userlist/userlist.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
     FooterComponent,
-    SidebarComponent,
     RegistrationformComponent,
-    HomeComponent,
+    UserComponent,
+    UsersComponent,
+    UserlistComponent
   ],
   imports: [
     CommonModule,
@@ -34,14 +42,13 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,MatDividerModule,MatSidenavModule,MatListModule,
-    MatCardModule,MatTabsModule,MatInputModule,MatFormFieldModule,ReactiveFormsModule,FormsModule
-    
+    MatCardModule,MatTabsModule,MatInputModule,MatFormFieldModule,ReactiveFormsModule,FormsModule,
+    MatTableModule,MatMenuModule,
+    DialogsModule,HttpClientModule,MatPaginatorModule,MatSortModule,MatProgressSpinnerModule,MatCheckboxModule
   ],
   exports: [
-    HeaderComponent,
     FooterComponent,
-    SidebarComponent,
-    RegistrationformComponent,
+    RegistrationformComponent,UserComponent,UsersComponent,UserlistComponent
   ],
 })
 export class SharedModule { }

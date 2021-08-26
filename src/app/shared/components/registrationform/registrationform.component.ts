@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/service/authentication/authentication.service';
+import { SignInData } from 'src/app/model/signInData';
+
 
 
 
@@ -14,10 +17,12 @@ export class RegistrationformComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   });
+ 
   
+  // isFormInvalid = false;
+  // areCredentialsInvalid = false;
 
-
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
 
   getErrorMessage() {
@@ -35,7 +40,24 @@ export class RegistrationformComponent implements OnInit {
   hide = true;
 
   onSubmit() {
+
+  //   if(!this.loginForm.valid){
+  //     this.isFormInvalid=true;
+  //     this.areCredentialsInvalid=true;
+  //   }
+  //  this.checkCredentials();
+
     console.log(this.loginForm.value);
+    const signInData = new SignInData(this.loginForm.value.email, this.loginForm.value.password);
+    this.authenticationService.authenticate(signInData);
   }
+
+  // private checkCredentials() {
+  //   const signInData = new SignInData(this.loginForm.value.email, this.loginForm.value.password);
+  //   if(this.authenticationService.authenticate(signInData)) {
+  //     this.isFormInvalid = false;
+  //     this.areCredentialsInvalid = true; 
+  //   } 
+  // }
 
 }

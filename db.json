@@ -1,0 +1,50 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "name": "somesh",
+      "email": "somesh@gmail.com",
+      "password": "somesh@123"
+    },
+    {
+      "id": "2",
+      "name": "mangesh",
+      "email": "mangesh@gmail.com",
+      "password": "mangesh@123"
+    },
+    {
+      "id": "3",
+      "name": "sumit",
+      "email": "sumit@gmail.com",
+      "password": "sumit@123"
+    },
+    {
+      "id": "4",
+      "name": "anil",
+      "email": "anil@gmail.com",
+      "password": "anil@123"
+    },
+    {
+      "id": "5",
+      "name": "mahesh",
+      "email": "mahesh@gmail.com",
+      "password": "mahesh@123"
+    },
+    {
+      "id": "6",
+      "name": "hfgh",
+      "email": "hfgh",
+      "password": "ghfhfg"
+    },
+    {
+      "id": "7",
+      "name": "sunil",
+      "email": "sunil@tcs.com",
+      "password": "sunil@123"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

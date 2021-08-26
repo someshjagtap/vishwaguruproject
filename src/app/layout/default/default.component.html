@@ -1,12 +1,61 @@
-<app-header></app-header>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'push' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar color="primary"></mat-toolbar>
+        <mat-nav-list>
+            <!-- <div class="profile-card">
+                <div class="header">
+                    <h3>Somesh Jagtap</h3>
+                    <h5>Someshjagtap12@gmail.com</h5>
+                </div>
+                <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Somesh Jagtap">
+            </div>
+            <mat-divider></mat-divider> -->
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Dashboard</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/user">
+                <span matBadge="{{usercount}}" matBadgeColor="accent" matBadgeOverlap="false">User</span>
+            </a>
 
-<mat-drawer-container>
-    <mat-drawer mode="side" opened>
-        <app-sidebar></app-sidebar>
-    </mat-drawer>
-    <mat-drawer-content>
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
-  </mat-drawer-container>
-
-<app-footer></app-footer>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>IMS</span>
+            <span class="example-spacer"></span>
+            <div fxflex fxLayout="row" fxLayoutAlign="flex-end">
+                <ul fxLayout="row" fxLayoutGap="5px">
+                    <li>
+                        <button mat-icon-button>
+                            <mat-icon>settings</mat-icon>
+                        </button>
+                    </li>
+                    <li>
+                        <button mat-icon-button>
+                            <mat-icon>help_outline</mat-icon>
+                        </button>
+                    </li>
+                    <li>
+                        <button mat-mini-fab matTooltip="Somesh Jagtap" [matMenuTriggerFor]="menu" color="accent">
+                            <mat-icon>perm_identity</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="logout()">
+                                <mat-icon>power_settings_new</mat-icon>
+                                <span>Logout</span>
+                            </button>
+                        </mat-menu>
+                    </li>
+                </ul>
+            </div>
+        </mat-toolbar>
+        <!-- Add Content Here -->
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+        <!-- <app-footer></app-footer> -->
+    </mat-sidenav-content>
+</mat-sidenav-container>
