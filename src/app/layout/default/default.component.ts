@@ -12,8 +12,8 @@ import { UserService } from 'src/app/service/user/user.service';
 })
 export class DefaultComponent implements OnInit {
 
-  usercount !:any;
-  subscription !: Subscription;
+  userCount :any;
+  subscription!: Subscription;
 
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -28,7 +28,7 @@ export class DefaultComponent implements OnInit {
     this.authenticationService.logout();
   }
   ngOnInit(): void {
-    this.subscription = this.service.currentMessage.subscribe(message => this.usercount = message)
+    this.subscription = this.service.currentMessage.subscribe(message => this.userCount = message)
   }
 
   ngOnDestroy() {

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -22,18 +21,13 @@ import { DialogsModule } from '../dialogs/dialogs.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { UsersComponent } from './users/users.component';
-import { UserlistComponent } from './components/userlist/userlist.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
-    FooterComponent,
     RegistrationformComponent,
-    UserComponent,
-    UsersComponent,
-    UserlistComponent
+    UserComponent
   ],
   imports: [
     CommonModule,
@@ -47,8 +41,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     DialogsModule,HttpClientModule,MatPaginatorModule,MatSortModule,MatProgressSpinnerModule,MatCheckboxModule
   ],
   exports: [
-    FooterComponent,
-    RegistrationformComponent,UserComponent,UsersComponent,UserlistComponent
+    RegistrationformComponent,UserComponent
   ],
 })
 export class SharedModule { }

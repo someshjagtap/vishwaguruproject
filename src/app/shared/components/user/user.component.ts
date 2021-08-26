@@ -17,9 +17,9 @@ import { Subscription } from 'rxjs';
 })
 export class UserComponent implements OnInit, AfterViewInit {
 
-  message !:number;
+  message !: number;
   subscription !: Subscription;
-  count: UserList[]= [];
+  count: UserList[] = [];
   ELEMENT_DATA!: UserList[];
   displayedColumns: string[] = ['id', 'name', 'email', 'password', 'action'];
   dataSource = new MatTableDataSource<UserList>(this.ELEMENT_DATA);
@@ -28,36 +28,31 @@ export class UserComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  constructor(public dialog: MatDialog, private service: UserService) { }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
-      this.getUserDetails();
-      this.subscription = this.service.currentMessage.subscribe(message => this.message = message)
+    this.getUserDetails();
+    this.subscription = this.service.currentMessage.subscribe(message => this.message = message)
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  newMessage() {
-    //this.service.changeMessage("Hello from Sibling")
-  }
-
   getUserDetails() {
     this.service.getUser()
-      .subscribe(res =>{
+      .subscribe(res => {
         this.dataSource.data = res;
-        this.count= res;
+        this.count = res;
         this.service.changeMessage(this.count.length)
       })
   }
 
-  constructor(public dialog: MatDialog, private service: UserService) { }
-
- 
   openDialog(action: any, obj: any) {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
@@ -83,16 +78,16 @@ export class UserComponent implements OnInit, AfterViewInit {
       email: row_obj.email,
       password: row_obj.password
     })
-    .subscribe(res => {
-      console.log(res);
-      alert("User Added Successfully");
-      this.getUserDetails()
-      return res;
-    },
-      err => {
-        alert("Something Went Wrong")
-      })
-    
+      .subscribe(res => {
+        console.log(res);
+        alert("User Added Successfully");
+        this.getUserDetails()
+        return res;
+      },
+        err => {
+          alert("Something Went Wrong")
+        })
+
     console.log(this.dataSource.data);
   }
   updateRowData(row_obj: { id: number; name: string; email: string; password: string; }) {
@@ -125,5 +120,5 @@ export class UserComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  
+
 }

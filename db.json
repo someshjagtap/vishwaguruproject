@@ -32,15 +32,34 @@
     },
     {
       "id": "6",
-      "name": "hfgh",
-      "email": "hfgh",
-      "password": "ghfhfg"
+      "name": "girish",
+      "email": "mssolution@mail.com",
+      "password": "solution@16",
+      "action": "Update"
     },
     {
       "id": "7",
       "name": "sunil",
       "email": "sunil@tcs.com",
       "password": "sunil@123"
+    },
+    {
+      "id": "8",
+      "name": "abhijit",
+      "email": "abhi@gmail.com",
+      "password": "abhi@123"
+    },
+    {
+      "id": "9",
+      "name": "supriya",
+      "email": "sup@gmail.com",
+      "password": "sup@123"
+    },
+    {
+      "id": "10",
+      "name": "ggfgd",
+      "email": "dfgd",
+      "password": "gdgd"
     }
   ],
   "comments": [],
